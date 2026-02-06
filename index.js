@@ -10,8 +10,17 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        executablePath: '/usr/bin/google-chrome' // මෙය අවශ්‍ය වුවහොත් පමණක් එක් කරන්න
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process', // Codespaces වලදී මෙය වැදගත් වේ
+            '--disable-gpu'
+        ],
     }
 });
 
