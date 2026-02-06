@@ -1,52 +1,37 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const GeminiAI = require('./lib/gemini');
 
-// Gemini API Configuration
-// ඔබේ API Key එක පහත ස්ථානයට ඇතුළත් කරන්න
-const genAI = new GoogleGenerativeAI("ඔබේ_API_KEY_එක_මෙතනට_දමන්න");
-const model = genAI.getGenerativeModel({ 
-    model: "gemini-1.5-flash",
-    systemInstruction: "You are a helpful assistant named Gemini. Answer clearly and concisely."
-});
+// ඔබේ Gemini API Key එක මෙතනට දමන්න
+const API_KEY = "ඔබේ_API_KEY_එක_මෙතනට";
+const ai = new GeminiAI(API_KEY);
 
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--single-process'
-        ],
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
 });
 
 client.on('qr', (qr) => {
-    console.log('Scan the QR code below:');
+    console.log('පහත QR එක Scan කරන්න:');
     qrcode.generate(qr, { small: true });
 });
 
 client.on('ready', () => {
-    console.log('WhatsApp Bot is ready and running!');
+    console.log('WhatsApp Bot සූදානම්!');
 });
 
 client.on('message', async (msg) => {
-    // ගෲප් පණිවිඩ නොසලකා හැරීමට
-    if (msg.from.includes('@g.us')) return;
+    if (msg.from.includes('@g.us')) return; // ගෲප් මැසේජ් මඟ හරින්න
 
-    try {
-        // Gemini වෙතින් පිළිතුර ලබා ගැනීම
-        const result = await model.generateContent(msg.body);
-        const response = await result.response;
-        const text = response.text();
-
-        // පිළිතුර යැවීම
-        await msg.reply(text);
-    } catch (error) {
-        console.error("Error:", error);
-    }
+    console.log(`User: ${msg.body}`);
+    
+    // Library එක හරහා පිළිතුර ලබා ගැනීම
+    const aiResponse = await ai.ask(msg.body);
+    
+    await msg.reply(aiResponse);
 });
 
-client.initialize();
+client.initialize();;
