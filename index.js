@@ -14,13 +14,8 @@ const client = new Client({
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process', // Codespaces වලදී මෙය වැදගත් වේ
-            '--disable-gpu'
-        ],
+            '--disable-dev-shm-usage'
+        ]
     }
 });
 
