@@ -36,7 +36,7 @@
   <tr>
     <td align="center">
       <a href="https://github.com/DarkLegendHyper">
-        <img src="[https://github.com/ඔබේ-Github-නම.png](https://avatars.githubusercontent.com/u/256319571?s=400&u=b8da28fd963a527788e70a55d71964ac629f6a6b&v=4)" width="100px;" alt="Developer Photo"/><br />
+        <img src="https://avatars.githubusercontent.com/u/256319571?s=400&u=b8da28fd963a527788e70a55d71964ac629f6a6b&v=4" width="100px;" alt="Developer Photo"/><br />
         <sub><b>[D.S.S.KARUNARATHNA]</b></sub>
       </a>
     </td>
