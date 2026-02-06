@@ -3,7 +3,7 @@ const qrcode = require('qrcode-terminal');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // 1. Gemini API සැකසුම (ඔබේ API Key එක මෙතනට දාන්න)
-const genAI = new GoogleGenerativeAI("ඔබේ_API_KEY_එක_මෙතනට");
+const genAI = new GoogleGenerativeAI("AIzaSyA52JswA_rgcfVMgnCjTAHQz7NiiKhki68");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // 2. WhatsApp Client එක සැකසීම
