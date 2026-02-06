@@ -1,8 +1,8 @@
 <div align="center">
 
-  <h1>🚀 Gemini AI Chat Bot</h1>
+  <h1>🚀 Gemini AI Whatsapp Chat Bot</h1>
   <p align="center">
-    <b>AI තාක්ෂණයෙන් බලගන්වන ලද දියුණු සංවාද සහකාරයා</b>
+    <b>👑😋AI තාක්ෂණයෙන් බලගන්වන ලද දියුණු සංවාද සහකාරයා</b>
   </p>
 
   <img src="https://blog.google/static/blogv2/images/google-logo.svg" width="100" alt="Google Logo" />
@@ -35,15 +35,15 @@
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/ඔබේ-Github-නම">
-        <img src="https://github.com/ඔබේ-Github-නම.png" width="100px;" alt="Developer Photo"/><br />
-        <sub><b>[ඔබේ නම මෙතන ලියන්න]</b></sub>
+      <a href="https://github.com/DarkLegendHyper">
+        <img src="[https://github.com/ඔබේ-Github-නම.png](https://avatars.githubusercontent.com/u/256319571?s=400&u=b8da28fd963a527788e70a55d71964ac629f6a6b&v=4)" width="100px;" alt="Developer Photo"/><br />
+        <sub><b>[D.S.S.KARUNARATHNA]</b></sub>
       </a>
     </td>
     <td>
-      <b>විස්තරය:</b> මම මෘදුකාංග සංවර්ධනය සහ AI තාක්ෂණය ගැන උනන්දුවක් දක්වන ශිෂ්‍යයෙක්/සංවර්ධකයෙක් වෙමි. <br/>
+      <b>විස්තරය:</b> මම මෘදුකාංග සංවර්ධනය සහ AI තාක්ෂණය ගැන උනන්දුවක් දක්වන ශිෂ්‍යයෙක් වෙමි. <br/>
       <b>සම්බන්ධ වන්න:</b> 
-      <a href="mailto:ඔබේ-ඊමේල්-ලිපිනය">Email</a> | 
+      <a href="sunethkarunarathna5@gmail.com">Email</a> | 
       <a href="https://linkedin.com/in/ඔබේ-Linkedin">LinkedIn</a>
     </td>
   </tr>
