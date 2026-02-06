@@ -5,7 +5,7 @@
     <b>👑😋AI තාක්ෂණයෙන් බලගන්වන ලද දියුණු සංවාද සහකාරයා</b>
   </p>
 
-  <img src="https://image2url.com/r2/default/images/1770391712453-762411b8-000b-4026-bb45-818ced23bef5.jpg" width="100px;" alt="Google Gemini Logo" />
+  <img src="https://image2url.com/r2/default/images/1770391712453-762411b8-000b-4026-bb45-818ced23bef5.jpg" width="50px;" alt="Google Gemini Logo" />
   <br />
   
   
