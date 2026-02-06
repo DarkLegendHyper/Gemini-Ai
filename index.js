@@ -2,36 +2,37 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const GeminiAI = require('./lib/gemini');
 
-// ඔබේ Gemini API Key එක මෙතනට දමන්න
-const API_KEY = "ඔබේ_API_KEY_එක_මෙතනට";
+const API_KEY = process.env.GEMINI_API_KEY;
+if (!API_KEY) {
+    console.error('AIzaSyA52JswA_rgcfVMgnCjTAHQz7NiiKhki68');
+    process.exit(1);
+}
 const ai = new GeminiAI(API_KEY);
 
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/nix/store/chromium/bin/chromium',
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
     }
 });
 
 client.on('qr', (qr) => {
-    console.log('පහත QR එක Scan කරන්න:');
+    console.log('SCAN QR CODE:');
     qrcode.generate(qr, { small: true });
 });
 
 client.on('ready', () => {
-    console.log('WhatsApp Bot සූදානම්!');
+    console.log('WhatsApp Bot START');
 });
 
 client.on('message', async (msg) => {
-    // 1. WhatsApp Status මඟ හැරීමට මෙම පේළිය එක් කරන්න
     if (msg.from === 'status@broadcast') return;
-
-    // 2. ගෲප් මැසේජ් මඟ හැරීමට (අවශ්‍ය නම් පමණක්)
     if (msg.from.includes('@g.us')) return;
 
     try {
-        console.log(`ලැබුණු පණිවිඩය: ${msg.body}`);
+        console.log(`MESSAGE: ${msg.body}`);
         
         const aiResponse = await ai.ask(msg.body);
         await msg.reply(aiResponse);
@@ -42,3 +43,4 @@ client.on('message', async (msg) => {
 });
 
 client.initialize();;
+
