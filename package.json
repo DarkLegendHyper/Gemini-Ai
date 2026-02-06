@@ -1,22 +1,14 @@
 {
-  "name": "gemini-ai",
+  "name": "gemini-whatsapp-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "WhatsApp Bot integrated with Google Gemini AI",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mrdarkhyperlegend-hue/Gemini-Ai.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/mrdarkhyperlegend-hue/Gemini-Ai/issues"
-  },
-  "homepage": "https://github.com/mrdarkhyperlegend-hue/Gemini-Ai#readme"
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0"
+  }
 }
