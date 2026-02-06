@@ -24,14 +24,21 @@ client.on('ready', () => {
 });
 
 client.on('message', async (msg) => {
-    if (msg.from.includes('@g.us')) return; // ගෲප් මැසේජ් මඟ හරින්න
+    // 1. WhatsApp Status මඟ හැරීමට මෙම පේළිය එක් කරන්න
+    if (msg.from === 'status@broadcast') return;
 
-    console.log(`User: ${msg.body}`);
-    
-    // Library එක හරහා පිළිතුර ලබා ගැනීම
-    const aiResponse = await ai.ask(msg.body);
-    
-    await msg.reply(aiResponse);
+    // 2. ගෲප් මැසේජ් මඟ හැරීමට (අවශ්‍ය නම් පමණක්)
+    if (msg.from.includes('@g.us')) return;
+
+    try {
+        console.log(`ලැබුණු පණිවිඩය: ${msg.body}`);
+        
+        const aiResponse = await ai.ask(msg.body);
+        await msg.reply(aiResponse);
+        
+    } catch (error) {
+        console.error("Error:", error);
+    }
 });
 
 client.initialize();;
