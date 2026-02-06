@@ -4,7 +4,7 @@ const GeminiAI = require('./lib/gemini');
 
 const API_KEY = process.env.GEMINI_API_KEY;
 if (!API_KEY) {
-    console.error('AIzaSyA52JswA_rgcfVMgnCjTAHQz7NiiKhki68');
+    console.error('your api key add');
     process.exit(1);
 }
 const ai = new GeminiAI(API_KEY);
