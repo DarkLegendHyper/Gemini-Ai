@@ -4,11 +4,7 @@
   <p align="center">
     <b>👑😋AI තාක්ෂණයෙන් බලගන්වන ලද දියුණු සංවාද සහකාරයා</b>
   </p>
-<br>
-  <img src="https://image2url.com/r2/default/images/1770391712453-762411b8-000b-4026-bb45-818ced23bef5.jpg" width="50px;" alt="Gemini Photo"/><br />
-  
-  
-  <p>
+   <p>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
     <img src="https://img.shields.io/badge/Gemini%20Pro-4285F4?style=for-the-badge&logo=google&logoColor=white" />
     <img src="https://img.shields.io/badge/Open%20Source-Heart-red?style=for-the-badge" />
