@@ -8,7 +8,11 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // 2. WhatsApp Client එක සැකසීම
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        executablePath: '/usr/bin/google-chrome' // මෙය අවශ්‍ය වුවහොත් පමණක් එක් කරන්න
+    }
 });
 
 // QR Code එක පෙන්වීම
