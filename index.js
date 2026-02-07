@@ -2,47 +2,51 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const GeminiAI = require('./lib/gemini');
 
-// Ensure you have a .env file or export this variable
-const API_KEY = "AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI"; // Or use process.env.GEMINI_API_KEY
-const ai = new GeminiAI(API_KEY);
-
-// Then later...
-const response = await ai.ask("Hello!");
+// 1. Setup API Key
+const API_KEY = "AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI"; 
 
 if (!API_KEY) {
-    console.error('API missin');
+    console.error('❌ Error: API Key is missing!');
     process.exit(1);
 }
 
+// 2. Initialize the AI (Only do this ONCE)
 const ai = new GeminiAI(API_KEY);
 
+// 3. Setup WhatsApp Client
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        // Removed the hardcoded Nix path unless you are specifically on NixOS
-        // If on Windows/Mac/Linux, Puppeteer usually finds Chromium automatically
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
+        args: [
+            '--no-sandbox', 
+            '--disable-setuid-sandbox', 
+            '--disable-dev-shm-usage', 
+            '--disable-gpu'
+        ]
     }
 });
 
+// 4. QR Code Generation
 client.on('qr', (qr) => {
     console.log('SCAN THIS QR CODE WITH WHATSAPP:');
     qrcode.generate(qr, { small: true });
 });
 
+// 5. Bot Ready Message
 client.on('ready', () => {
     console.log('✅ WhatsApp Bot is Ready and Online!');
 });
 
+// 6. Handling Messages
 client.on('message', async (msg) => {
     // Ignore status updates and group messages
     if (msg.from === 'status@broadcast' || msg.from.includes('@g.us')) return;
 
     try {
-        console.log(`Received message from ${msg.from}: ${msg.body}`);
+        console.log(`📩 Message from ${msg.from}: ${msg.body}`);
         
-        // Ensure the AI tool is working correctly
+        // Use the AI to get a response
         const aiResponse = await ai.ask(msg.body);
         
         if (aiResponse) {
@@ -55,5 +59,5 @@ client.on('message', async (msg) => {
     }
 });
 
+// 7. Start the Bot
 client.initialize();
-
