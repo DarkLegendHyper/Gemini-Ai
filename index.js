@@ -17,12 +17,13 @@ const ai = new GeminiAI(API_KEY);
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        headless: true,
+        headless: true, // MUST be true
         args: [
-            '--no-sandbox', 
-            '--disable-setuid-sandbox', 
-            '--disable-dev-shm-usage', 
-            '--disable-gpu'
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--no-zygote'
         ]
     }
 });
