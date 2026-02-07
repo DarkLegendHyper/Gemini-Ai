@@ -3,10 +3,14 @@ const qrcode = require('qrcode-terminal');
 const GeminiAI = require('./lib/gemini');
 
 // Ensure you have a .env file or export this variable
-const API_KEY = process.env.GEMINI_API_KEY;
+const API_KEY = "AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI"; // Or use process.env.GEMINI_API_KEY
+const ai = new GeminiAI(API_KEY);
+
+// Then later...
+const response = await ai.ask("Hello!");
 
 if (!API_KEY) {
-    console.error('AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI');
+    console.error('API missin');
     process.exit(1);
 }
 
