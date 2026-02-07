@@ -1,7 +1,10 @@
-const { Client, LocalAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
-const GeminiAI = require('./lib/gemini');
+import pkg from 'whatsapp-web.js';
+const { Client, LocalAuth } = pkg;
 
+import qrcode from 'qrcode-terminal';
+import GeminiAI from './lib/gemini.js'; // Note: You MUST add the .js extension here
+
+// ... the rest of your code stays the same
 // 1. Setup API Key
 const API_KEY = "AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI"; 
 
