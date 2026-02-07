@@ -6,7 +6,7 @@ const GeminiAI = require('./lib/gemini');
 const API_KEY = process.env.GEMINI_API_KEY;
 
 if (!API_KEY) {
-    console.error('ERROR: GEMINI_API_KEY is missing in your environment variables.');
+    console.error('AIzaSyCalW-qDRTeEHS_xoiAynngYM9VZpCACNI');
     process.exit(1);
 }
 
